@@ -1,4 +1,34 @@
-import reactLogo from './assets/react.svg'
+import sharkyLogo from './assets/sharky.png'
+import expandedLogo from './assets/arrow-down.svg'
+
+function FilterLabel({ name }) {
+  return (
+    <div class='mr-2 bg-gray-200 rounded-full w-28 h-7 flex justify-center items-center'>
+      <div>
+        {name}
+      </div>
+    </div>
+  )
+}
+
+function HeaderSection({ title, labelNames }) {
+  return (
+    <div>
+      <header class='flex items-center'>
+        <img src={expandedLogo} />
+        <h3 class='font-bold text-lg'>{title}</h3>
+      </header>
+
+      <ul class='flex my-2'>
+        {
+          labelNames.map(labelName => (
+            <FilterLabel name={labelName} />
+          ))
+        }
+      </ul>
+    </div>
+  )
+}
 
 function App() {
 
@@ -6,9 +36,17 @@ function App() {
     <>
       <div class='px-60 py-10'>
         <header className='flex items-center'>
-          <img src={reactLogo} class='' alt='Sharky Logo' />
+          <img src={sharkyLogo} class='h-10' alt='Sharky Logo' />
           <h1 class='mx-5'>Sharky - Admin Panel</h1>
         </header>
+
+        <h2 class='font-bold text-xl py-10'>Dashboard</h2>
+
+        <section>
+
+          <HeaderSection title='Wie geht es den Lernenden?' labelNames={['Beruf', 'Standort', 'Lehrjahr']} />
+
+        </section>
       </div>
     </>
   )
