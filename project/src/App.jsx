@@ -47,6 +47,18 @@ function App() {
           <HeaderSection title='Wie geht es den Lernenden?' labelNames={['Beruf', 'Standort', 'Lehrjahr']} />
 
         </section>
+
+        <section>
+
+          <HeaderSection title='Hilfe Aktivitäten' labelNames={['Beruf', 'Fach', 'Standort', 'Lehrjahr']} />
+
+        </section>
+
+        <section>
+
+          <HeaderSection title='Events' labelNames={['Beruf', 'Alte', 'Von', 'Bis']} />
+
+        </section>
       </div>
     </>
   )
