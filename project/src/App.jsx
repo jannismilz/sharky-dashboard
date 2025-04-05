@@ -2,6 +2,7 @@ import sharkyLogo from './assets/sharky.png'
 import expandedLogo from './assets/arrow-down.svg'
 import { SharkyPieChart } from './PieChart.jsx'
 import { SuppotCard, EventCard } from './Cards.jsx'
+import SharkyLineChart from './LineChart.jsx'
 
 function FilterLabel({ name }) {
   return (
@@ -48,7 +49,11 @@ function App() {
 
           <HeaderSection title='Wie geht es den Lernenden?' labelNames={['Beruf', 'Standort', 'Lehrjahr']} />
 
-          <SharkyPieChart />
+          <div class='flex py-7'>
+            <SharkyPieChart />
+
+            <SharkyLineChart />
+          </div>
 
         </section>
 
