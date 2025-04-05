@@ -1,5 +1,6 @@
 import sharkyLogo from './assets/sharky.png'
 import expandedLogo from './assets/arrow-down.svg'
+import { SharkyPieChart } from './Charts.jsx'
 
 function FilterLabel({ name }) {
   return (
@@ -45,6 +46,8 @@ function App() {
         <section>
 
           <HeaderSection title='Wie geht es den Lernenden?' labelNames={['Beruf', 'Standort', 'Lehrjahr']} />
+
+          <SharkyPieChart />
 
         </section>
 
