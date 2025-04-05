@@ -1,6 +1,6 @@
 import sharkyLogo from './assets/sharky.png'
 import expandedLogo from './assets/arrow-down.svg'
-import { SharkyPieChart } from './Charts.jsx'
+import { SharkyPieChart } from './PieChart.jsx'
 import { SuppotCard, EventCard } from './Cards.jsx'
 
 function FilterLabel({ name }) {
