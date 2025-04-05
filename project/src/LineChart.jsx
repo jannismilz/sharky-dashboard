@@ -1,74 +1,87 @@
 import React, { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, FunnelChart } from 'recharts';
 
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+import data from './data.json'
 
-export default class SharkyLineChart extends PureComponent {
-  render() {
-    return (
-      <LineChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-      </LineChart>
-    );
-  }
+function readGraphDataFromData() {
+  let dateScoreMap = new Map()
+
+  data.map(person => {
+    person.data.map(rating => {
+
+      let score
+
+      switch (rating.feedback) {
+        case "Schlecht":
+          score = 25
+          break
+        case "Okay":
+          score = 50
+          break
+        case "Gut":
+          score = 75
+          break
+        case "Super":
+          score = 100
+          break
+        default:
+          score = 0
+      }
+
+      let arr = []
+      if (dateScoreMap.get(rating.timestamp) != undefined) {
+        arr = dateScoreMap.get(rating.timestamp)
+      }
+
+      arr[arr.length] = score
+      dateScoreMap.set(rating.timestamp, arr)
+
+    })
+  });
+
+  console.log(dateScoreMap)
+
+  let graphData = []
+
+  dateScoreMap.forEach((scores, date) => {
+    let summScores = scores.reduce((a, c) => (a + c), 0)
+    const avg = Math.floor(summScores / scores.length)
+
+    graphData[graphData.length] = {
+      xAxis: date,
+      score: avg,
+      amt: avg,
+    }
+  })
+
+
+  console.log(graphData)
+  return graphData
+}
+
+export default function SharkyLineChart() {
+
+  const graphData = readGraphDataFromData()
+
+  return (
+    <LineChart
+      width={500}
+      height={300}
+      data={graphData}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="xAxis" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line type="monotone" dataKey="score" stroke="#51FF00" activeDot={{ r: 5 }} />
+    </LineChart >
+  );
 }
 

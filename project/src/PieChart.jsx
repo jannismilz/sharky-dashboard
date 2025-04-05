@@ -61,8 +61,6 @@ export function SharkyPieChart() {
 
   ]
 
-  console.log(chartData)
-
   const avgScore = (sumScore / amountOfFeedback).toFixed(2)
 
   return (
