@@ -1,6 +1,7 @@
 import sharkyLogo from './assets/sharky.png'
 import expandedLogo from './assets/arrow-down.svg'
 import { SharkyPieChart } from './Charts.jsx'
+import { SuppotCard } from './Cards.jsx'
 
 function FilterLabel({ name }) {
   return (
@@ -54,6 +55,11 @@ function App() {
         <section>
 
           <HeaderSection title='Hilfe Aktivitäten' labelNames={['Beruf', 'Fach', 'Standort', 'Lehrjahr']} />
+
+          <SuppotCard title='Nachhilfe Mathe' year='3' school='BMS' theme='Potzentfunktionen'
+            descripton='Hallo zusammen ich habe Probleme zu verstehen wie Potenzfunktionen funktionieren.'
+            img='./assets/schreibtisch.webp'
+          />
 
         </section>
 
