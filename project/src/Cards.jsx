@@ -1,13 +1,16 @@
 export function EventCard({
   title,
-  ort,
-  datum,
+  loction,
+  date,
   fromtime,
   totime,
   age,
   descripton,
+  img,
 }) {
-
+  return (
+    <Card title={title} subtitle={`${loction} · ${date} · ${fromtime} - ${totime} · ${age}`} description={descripton} backgroundImage={img} />
+  )
 }
 
 export function SuppotCard({
@@ -30,7 +33,7 @@ function Card({
   backgroundImage,
 }) {
   return (
-    <div class={`bg-gray-200 rounded-b-2xl rounded-t-4xl shadow-xl w-80 h-40 bg-[url(${backgroundImage})] bg-top bg-cover`} >
+    <div class={`bg-gray-200 rounded-b-2xl rounded-t-4xl shadow-xl w-80 h-40 bg-[url(${backgroundImage})] bg-top bg-cover my-5`} >
       <div class='bg-white rounded-t-2xl border-gray-200 border-1 px-5 py-2 h-14'>
         <h4 class='font-bold text-md'>{title}</h4>
         <h5 class='text-xs'>{subtitle}</h5>

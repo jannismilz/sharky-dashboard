@@ -1,7 +1,7 @@
 import sharkyLogo from './assets/sharky.png'
 import expandedLogo from './assets/arrow-down.svg'
 import { SharkyPieChart } from './Charts.jsx'
-import { SuppotCard } from './Cards.jsx'
+import { SuppotCard, EventCard } from './Cards.jsx'
 
 function FilterLabel({ name }) {
   return (
@@ -56,16 +56,53 @@ function App() {
 
           <HeaderSection title='Hilfe Aktivitäten' labelNames={['Beruf', 'Fach', 'Standort', 'Lehrjahr']} />
 
-          <SuppotCard title='Nachhilfe Mathe' year='3' school='BMS' theme='Potzentfunktionen'
-            descripton='Hallo zusammen ich habe Probleme zu verstehen wie Potenzfunktionen funktionieren.'
-            img='./assets/schreibtisch.webp'
-          />
+          <div class='grid grid-cols-3'>
+            <SuppotCard title='Nachhilfe Mathe' year='3' school='BMS' theme='Potzentfunktionen'
+              descripton='Hallo zusammen ich habe Probleme zu verstehen wie Potenzfunktionen funktionieren.'
+              img='./assets/schreibtisch.webp'
+            />
+            <SuppotCard title='Nachhilfe Mathe' year='3' school='BMS' theme='Potzentfunktionen'
+              descripton='Hallo zusammen ich habe Probleme zu verstehen wie Potenzfunktionen funktionieren.'
+              img='./assets/schreibtisch.webp'
+            />
+            <SuppotCard title='Nachhilfe Mathe' year='3' school='BMS' theme='Potzentfunktionen'
+              descripton='Hallo zusammen ich habe Probleme zu verstehen wie Potenzfunktionen funktionieren.'
+              img='./assets/schreibtisch.webp'
+            />
+            <SuppotCard title='Nachhilfe Mathe' year='3' school='BMS' theme='Potzentfunktionen'
+              descripton='Hallo zusammen ich habe Probleme zu verstehen wie Potenzfunktionen funktionieren.'
+              img='./assets/schreibtisch.webp'
+            />
+            <SuppotCard title='Nachhilfe Mathe' year='3' school='BMS' theme='Potzentfunktionen'
+              descripton='Hallo zusammen ich habe Probleme zu verstehen wie Potenzfunktionen funktionieren.'
+              img='./assets/schreibtisch.webp'
+            />
+          </div>
 
         </section>
 
         <section>
 
           <HeaderSection title='Events' labelNames={['Beruf', 'Alte', 'Von', 'Bis']} />
+
+          <div class='grid grid-cols-3'>
+            <EventCard title='Badmintion' loction='Zürich' date='30.08.2025' fromtime='17:00' totime='19:00' age='16+'
+              descripton='Hallo zusammen wir werden jeweils Donnerstag mit allen Badminton spielen gehen'
+              img='./assets/badminton.webp'
+            />
+            <EventCard title='Badmintion' loction='Zürich' date='30.08.2025' fromtime='17:00' totime='19:00' age='16+'
+              descripton='Hallo zusammen wir werden jeweils Donnerstag mit allen Badminton spielen gehen'
+              img='./assets/badminton.webp'
+            />
+            <EventCard title='Badmintion' loction='Zürich' date='30.08.2025' fromtime='17:00' totime='19:00' age='16+'
+              descripton='Hallo zusammen wir werden jeweils Donnerstag mit allen Badminton spielen gehen'
+              img='./assets/badminton.webp'
+            />
+            <EventCard title='Badmintion' loction='Zürich' date='30.08.2025' fromtime='17:00' totime='19:00' age='16+'
+              descripton='Hallo zusammen wir werden jeweils Donnerstag mit allen Badminton spielen gehen'
+              img='./assets/badminton.webp'
+            />
+          </div>
 
         </section>
       </div>
